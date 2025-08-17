@@ -420,7 +420,7 @@ const qt = [
   /* --------------------- */
 ];
 
-// komorebi
+// komorebi 未完成，弹到最后对比时间戳主副旋律有0.2-0.4s延迟，等待后续版本更新
 const komorebi_beatTime = 100;
 const komorebi = {
   main: [
@@ -545,9 +545,9 @@ const komorebi = {
 // ]
 
 // 拍子间隔
-const beatTime = ((e = 60) => Number((60 / e * 1000).toFixed(3)))(komorebi_beatTime);
+const beatTime = ((e = 60) => Number((60 / e * 1000).toFixed(3)))(qt_beatTime);
 
 module.exports = {
-  musicScore: komorebi,
+  musicScore: qt,
   beatTime,
 };

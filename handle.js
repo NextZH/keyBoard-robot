@@ -1,5 +1,3 @@
-
-// const { parentPort } = require('worker_threads');
 const ks = require('node-key-sender');
 const { keyMap } = require('./map');
 const { beatTime } = require('./musicScore');
@@ -14,7 +12,7 @@ const getParams = (key, beat = 1) => {
     return [key, beat * beatTime];
   }
 }
-const handle = async (melodyList, index, max) => {
+const handle = (melodyList) => {
   for (let i = 0; i < melodyList.length; i++) {
     const e = melodyList[i];
     if (i === 0) {
@@ -26,20 +24,12 @@ const handle = async (melodyList, index, max) => {
       ks.batchTypeCombination(...getParams(e.key, e.beat || 1));
     }
     if (i === melodyList.length - 1) {
-      await ks.sendBatch().then(() => {
-        // parentPort.postMessage(index);
-      });
-      if (index === max - 1) {
+      ks.sendBatch().then(() => {
         console.log('演奏完毕！', Date.now());
-      }
-      return index;
+      });
     }
   }
 }
-
-// parentPort.on('message', ({ list, index, max }) => {
-//   handle(list, index, max);
-// });
 
 module.exports = {
   handle,
