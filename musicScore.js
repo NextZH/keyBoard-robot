@@ -545,9 +545,9 @@ const komorebi = {
 // ]
 
 // 拍子间隔
-const beatTime = ((e = 60) => Number((60 / e * 1000).toFixed(3)))(qt_beatTime);
+const beatTime = ((e = 60) => Number((60 / e * 1000).toFixed(3)))(komorebi_beatTime);
 
 module.exports = {
-  musicScore: qt,
+  musicScore: komorebi,
   beatTime,
 };
