@@ -31,14 +31,6 @@ node.js官网：https://nodejs.org/zh-cn
 
 - 如果项目没存放在c盘路径下，先输入指定盘符回车，再输入cd + 你刚刚复制的路径
 
-  ```bash
-  C:\Windows\System32>E:
-  
-  E:\>cd E:\vscode\qita\lianxi\keyBoard-robot
-  
-  E:\vscode\qita\lianxi\keyBoard-robot>
-  ```
-
 ## 3.启动脚本
 
 - 然后执行npm install，下载脚本所需依赖
