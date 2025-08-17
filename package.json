@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uipath/robot": "^1.3.3",
     "node-key-sender": "^1.0.11"
   }
 }
