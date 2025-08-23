@@ -1,0 +1,88 @@
+const { MusicScore } = require('../../map');
+const musicScore = new MusicScore();
+
+// 乐谱名称
+musicScore.name = '夜曲';
+// Beat Per Minute bpm 拍子数
+musicScore.bpm = 88;
+// 音乐谱
+musicScore.ms = [
+  { key: '0' },
+  { key: '0' },
+  { key: '0' },
+  { key: '0', beat: 0.5 },
+  { key: '6', beat: 0.25 },
+  { key: '7', beat: 0.25 },
+  /* --------------------- */
+  { key: '1+', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '1+', beat: 0.5 },
+  { key: '1+', beat: 0.75 },
+  { key: '7', beat: 0.5 },
+  { key: '3+', beat: 0.5 },
+  { key: '3+', beat: 1.5 },
+  /* --------------------- */
+  { key: '5+', beat: 0.25 },
+  { key: '6+', beat: 0.25 },
+  { key: '6+', beat: 0.25 },
+  { key: '6+', beat: 0.5 },
+  { key: '5+', beat: 0.5 },
+  { key: '4+', beat: 0.25 },
+  { key: '5+', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '1+', beat: 1.25 },
+  /* --------------------- */
+  { key: '4+', beat: 0.5 },
+  { key: '4+', beat: 0.25 },
+  { key: '4+' },
+  { key: '4+', beat: 0.25 },
+  { key: '3+', beat: 0.5 },
+  { key: '7', beat: 0.5 },
+  { key: '3+', beat: 0.5 },
+  { key: '2+', beat: 0.5 },
+  /* --------------------- */
+  { key: '2+', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '7', beat: 0.5 },
+  { key: '1+', beat: 0.75 },
+  { key: '1+' },
+  { key: '7', beat: 0.5 },
+  { key: '6', beat: 0.25 },
+  { key: '7', beat: 0.25 },
+  /* --------------------- */
+  { key: '1+', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '1+', beat: 0.5 },
+  { key: '1+', beat: 0.75 },
+  { key: '7', beat: 0.5 },
+  { key: '3+', beat: 0.5 },
+  { key: '3+', beat: 1.5 },
+  /* --------------------- */
+  { key: '5+', beat: 0.25 },
+  { key: '6+', beat: 0.25 },
+  { key: '6+', beat: 0.25 },
+  { key: '6+', beat: 0.5 },
+  { key: '5+', beat: 0.5 },
+  { key: '4+', beat: 0.25 },
+  { key: '5+', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '1+', beat: 1.25 },
+  /* --------------------- */
+  { key: '4+', beat: 0.5 },
+  { key: '4+', beat: 0.25 },
+  { key: '4+' },
+  { key: '4+', beat: 0.25 },
+  { key: '3+', beat: 0.5 },
+  { key: '2+', beat: 0.5 },
+  { key: '1+', beat: 0.5 },
+  { key: '7', beat: 0.5 },
+  /* --------------------- */
+  { key: '7', beat: 0.5 },
+  { key: '1+', beat: 0.25 },
+  { key: '6', beat: 0.25 },
+  { key: '6' },
+  { key: '0' },
+  /* --------------------- */
+];
+
+module.exports = musicScore;
