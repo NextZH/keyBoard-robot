@@ -1,13 +1,16 @@
 # 一、项目结构介绍
 
 ```markdown
-├──  img  // 存放乐谱文件夹
+├──  img  // 存放乐谱图片文件夹
 │ └──  yp-晴天.png  // 示例乐谱图片，可对照代码自己翻译乐谱为正确数据结构
+├──  musicScore  // 存放乐谱数据总文件夹，包括入口文件和模块化文件夹
+│ ├──  modules  // 存放乐谱数据文件夹，将翻译过后的乐谱数据结构和节拍数据的文件存放于此
+│ │ └──  qt.js  // 示例乐谱文件（晴天），新增乐谱请参照该文件数据格式，并在musicScore/index.js中引入
+│ └──  index.js  // 乐谱数据入口文件、目录文件，在此修改当前弹奏的音乐
 ├──  .gitignore
 ├──  handle.js  // 处理弹奏的业务逻辑文件
 ├──  index.js  // 入口文件，主线程、开始方法
 ├──  map.js  // 索引表文件，翻译乐谱音调为对应按键，根据需要自主添加
-├──  musicScore.js  // 乐谱文件，将翻译过后的乐谱数据结构和节拍数据存放于此
 ├──  package-lock.json // 依赖锁文件，记录依赖版本，删掉也行
 ├──  package.json // 依赖包文件，记录依赖和指令
 └──  README.md
@@ -54,22 +57,43 @@ E:\vscode\qita\lianxi\keyBoard-robot>npm start
 
 ## 4.翻译乐谱
 
-musicScore.js文件中提供了示例乐谱晴天，可按照谱子翻译数据结构和配置拍子时长
+musicScore/modules/qt.js文件中提供了示例乐谱晴天，可按照谱子翻译数据结构和配置拍子时长
 
 ```js
-// test
-const test_beatTime = 60;
-const test = [
-  { key: ['1', '2'], beat: 1 },
-  { key: '3', beat: 0.5 },
-]
+const { MusicScore } = require('../../map');
+const musicScore = new MusicScore();
+
+// 乐谱名称
+musicScore.name = '晴天';
+// Beat Per Minute bpm 拍子数
+musicScore.bpm = 67;
+// 音乐谱
+musicScore.ms = [
+  {
+      key: '6-',
+      beat: 0.5,
+      new_bpm: 80,
+  },
+];
+
+module.exports = musicScore;
 ```
 
-test_beatTime：一分钟内拍子次数
+musicScore.name：乐谱名称
+
+musicScore.bpm：一分钟内拍子次数
+
+musicScore.ms：音乐谱数据
 
 key: 对应的音调，请对照map.js的索引表检查音调和按键是否对应正确
 
 beat: 默认值1，表示一拍
+
+new_bpm: 新的bpm
+
+## 5.终止程序
+
+选中cmd窗口，按住组合键`ctrl`+`C`，然后会提示`终止批处理操作吗(Y/N)? `，再按`Y`
 
 # 三、项目介绍
 
@@ -82,7 +106,12 @@ beat: 默认值1，表示一拍
 ## 2.脚本用途
 
 - 根据需求自己翻译乐谱，脚本执行演奏
-- 当前版本（2025-8-16）只能弹一些单调的谱子，没法弹和弦，后续版本会更新
+- 当前版本（2025-8-24）基本能弹和弦谱子，但还存在部分问题
+  - 1.节奏过快会漏音
+  - 2.toFixed精度过高导致程序崩溃，精度过低导致主副旋律音轨对不齐，请根据使用情况自己调节
+  - 3.部分和弦还是没法精准弹，比如komorebi，中间节奏明显混乱，原因追踪中，问题排查中
+- 后续优化（无限期）
+  - 图形化界面录入乐谱数据
 
 
 
