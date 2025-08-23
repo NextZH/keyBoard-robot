@@ -30,6 +30,11 @@ node.js官网：https://nodejs.org/zh-cn
 - 在电脑搜索栏搜索cmd，选择命令提示符，以管理员身份运行(一定要管理员身份运行，不然在其他软件上键盘事件不起作用)
 
 - 如果项目没存放在c盘路径下，先输入指定盘符回车，再输入cd + 你刚刚复制的路径
+```bash
+C:\Windows\System32>E:
+E:\>cd E:\vscode\qita\lianxi\keyBoard-robot
+E:\vscode\qita\lianxi\keyBoard-robot>
+```
 
 ## 3.启动脚本
 
